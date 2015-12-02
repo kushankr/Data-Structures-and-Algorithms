@@ -209,53 +209,42 @@ def delete(rootnode,item,parent):
 #print 'in_order after insertion',in_order(r,[])
 #print bfs_bst(r)
 #find lca of bst
-def findnode(rootnode,node1,res):
-
-	res.append(rootnode.rootval)
-
+#LCA 
+def find_seq(rootnode,node1,par):
 	if rootnode == None:
-		return False;
-	elif rootnode.rootval == node1.rootval:
-		return res;
+		return
+
 	else:
 		if node1.rootval < rootnode.rootval:
-			return findnode(rootnode.leftchild,node1,res);
+			par.append(rootnode.rootval)
+			find_seq(rootnode.leftchild,node1,par)
 
 		elif node1.rootval > rootnode.rootval:
-			return findnode(rootnode.rightchild,node1,res)
+			par.append(rootnode.rootval)
+			find_seq(rootnode.rightchild,node1,par)
+
+		else:
+			par.append(rootnode.rootval)
+
+	return par;
 
 
-def binarysearch(mylist,item):
-	midpoint = len(mylist)//2
-	if len(mylist) == 0:
-		return False;
-	elif item == mylist[midpoint]:
-		return True;
-	else:
-		if item < mylist[midpoint]:
-			return binarysearch(mylist[:midpoint],item)
-		elif item > mylist[midpoint]:
-			return binarysearch(mylist[midpoint+1:],item)
+def find_LCA(rootnode,node1,node2):
+	seq1 = find_seq(rootnode,node1,[])
+	seq2 = find_seq(rootnode,node2,[])
+	
+	set1 = set(seq1)
+	set2 = set(seq2)
 
-
-
-def findLCA(node1,node2):
-	myarr1 = findnode(r,node1,[])
-	myarr2 = findnode(r,node2,[])
-	sort1 = sorted(myarr1)
-	sort2 = sorted(myarr2)
-	if len(sort1) < len(sort2):
-		if binarysearch(sort2,sort1[0]):
-			return sort1[0];
-	else:
-		if binarysearch(sort1,sort2[0]):
-			return sort2[0];
+	return list(set1.intersection(set2))[0]
 
 
 
-print findLCA(Node(1.8),Node(2))
-print findLCA(Node(2.25),Node(5))
-print findLCA(Node(2),Node(5))
+print 'LCA',find_LCA(r,Node(1.8),Node(2))
+print 'LCA',find_LCA(r,Node(2.25),Node(1.8))
+print 'LCA',find_LCA(r,Node(2),Node(6))
+print 'LCA',find_LCA(r,Node(2.25),Node(2.75))
+print 'LCA',find_LCA(r,Node(1.8),Node(2.5))
 
 
 

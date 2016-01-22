@@ -101,12 +101,6 @@ def bfs_graph(start):
 				item.setPred(nv)
 				myq.enqueue(item)
 
-
-
-
-
-
-
 #print bfs_graph(g.getVertex('A'))
 
 def shortest_path(start):
@@ -127,13 +121,7 @@ def dfs_graph(start):
 
 	print start.id;
 
-
-
 	for nodes in start.getConnections():
 		dfs_graph(nodes)
-
-
-
-
 
 print dfs_graph(g.getVertex('A'))

@@ -36,9 +36,5 @@ def findanagram2(mystring1,mystring2):
 	else:
 		return False;
 
-
-
 print findanagram2('python','typhon')
 print findanagram2('radar','ridar')
-
-

@@ -12,7 +12,6 @@ def binary_search(mylist,item):
 	else:
 		if item < mylist[midpoint]:
 			return binary_search(mylist[:midpoint],item)
-
 		else:
 			return binary_search(mylist[midpoint+1:],item)
 

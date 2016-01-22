@@ -43,7 +43,6 @@ def binary_insert(rootnode,item):
 				rootnode.rightchild = item
 
 
-
 r = Node(3)
 binary_insert(r,Node(2))
 binary_insert(r,Node(5))
@@ -245,12 +244,4 @@ print 'LCA',find_LCA(r,Node(2.25),Node(1.8))
 print 'LCA',find_LCA(r,Node(2),Node(6))
 print 'LCA',find_LCA(r,Node(2.25),Node(2.75))
 print 'LCA',find_LCA(r,Node(1.8),Node(2.5))
-
-
-
-
-		
-
-
-
 

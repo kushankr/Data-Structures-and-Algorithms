@@ -60,8 +60,6 @@ def find_pairs(int_arr,num):
 
 print 'pairs',find_pairs(int_arr,7)
 
-
-
 #fibonacci
 def find_fib(num):
 	fib = {}
@@ -72,6 +70,5 @@ def find_fib(num):
 		fib[i] = fib[i-1]+fib[i-2]
 
 	return fib;
-
 
 print find_fib(11)

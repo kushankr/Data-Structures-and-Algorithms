@@ -30,8 +30,6 @@ def Merge(L,R,A):
 
 	return A;
 
-
-
 def Mergesort(mylist):
 	midpoint = len(mylist)//2;
 	if len(mylist) < 2:
@@ -39,22 +37,16 @@ def Mergesort(mylist):
 
 	else:
 		L = mylist[:midpoint]
-		R = mylist[midpoint:]
-
-		
+		R = mylist[midpoint:]		
 		Mergesort(L)
 		Mergesort(R)
 		Merge(L,R,mylist)
 
 		return mylist;
 
-
-
 print Mergesort([7,2,1,6,8,5,3,4])
 
-
 #Quicksort
-
 def partition(mylist,start,end):
 	pivot = mylist[end]
 	pindex = 0

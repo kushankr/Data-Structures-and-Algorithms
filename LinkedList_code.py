@@ -1,20 +1,3 @@
-class Stack:
-
-	def __init__(self):
-		self.items = [];
-
-	def push(self,item):
-		self.items.append(item)
-
-	def pop(self):
-		return self.items.pop()
-
-	def size(self):
-		return len(self.items)
-
-	def isEmpty(self):
-		return self.items == []
-
 class Node:
 	def __init__(self,dataval):
 		self.rootval = dataval
@@ -62,29 +45,14 @@ class LinkedList:
 			prev = current;
 			current = current.getNext();
 
-	def reverse(self):
-		current = self.head;
-		mys = Stack();
-		prev = None;
-		while current != None:
-			mys.push(current);
-			current = current.getNext();
-
-		while not mys.isEmpty():
-			nv = mys.pop();
-
-			if prev != None:
-				prev.setNext(nv)
-			else:
-				self.head = nv;
-
-			prev = nv;
-		prev.setNext(None)
-
-
-
-
-
+	def reverse(self,Node,prev=None):
+		if Node == None:
+			return
+		else:
+			self.reverse(Node.next,Node);
+			if Node.next == None:
+				self.head = Node
+			Node.setNext(prev)
 
 
 mylist = LinkedList();
@@ -100,6 +68,6 @@ print mylist.delete(77)
 
 print mylist.search(31)
 
-mylist.reverse()
+mylist.reverse(mylist.head)
 
 print 'reverse',mylist.search(31)

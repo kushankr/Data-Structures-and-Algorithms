@@ -1,11 +1,16 @@
-# Data-Structures-and-Algorithms
 Data Structures and Algorithms using Python
+-----------------------------------------------
 
-I learned data structures and algorithms using Python.
+- Stack
+- Queue
+- LinkedList
+- Recursion
+- Dynamic Programming
+- Binary Search
+- HashTable
+- MergeSort and QuickSort
+- Binary Search Tree
+- Graph
 
-
-Code Samples are attached.
-
-Reference:
-http://interactivepython.org/runestone/static/pythonds/index.html
+[Reference](http://interactivepython.org/runestone/static/pythonds/index.html)
 

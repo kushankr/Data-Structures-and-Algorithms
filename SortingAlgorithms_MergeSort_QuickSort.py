@@ -1,86 +1,90 @@
-def Merge(L,R,A):
+# Merge Sort and Quick Sort Algoritms
+# Both O(nlogn) - QuickSort has better space complexity
 
-	nL = len(L)
-	nR = len(R)
 
-	i = 0
-	j = 0
-	k = 0
+def Merge(L, R, A):
+    nL = len(L)
+    nR = len(R)
 
-	while i < nL and j < nR:
-		if L[i] < R[j]:
-			A[k] = L[i]
-			i = i+1
-			k = k+1
+    i = 0
+    j = 0
+    k = 0
 
-		elif R[j] < L[i]:
-			A[k] = R[j]
-			j = j+1
-			k=k+1
+    while i < nL and j < nR:
+        if L[i] < R[j]:
+            A[k] = L[i]
+            i = i + 1
+            k = k + 1
 
-	while i < nL:
-		A[k] = L[i]
-		i = i+1
-		k = k+1
+        elif R[j] < L[i]:
+            A[k] = R[j]
+            j = j + 1
+            k = k + 1
 
-	while j < nR:
-		A[k] = R[j]
-		j = j+1
-		k = k+1
+    while i < nL:
+        A[k] = L[i]
+        i = i + 1
+        k = k + 1
 
-	return A;
+    while j < nR:
+        A[k] = R[j]
+        j = j + 1
+        k = k + 1
+
+    return A
+
 
 def Mergesort(mylist):
-	midpoint = len(mylist)//2;
-	if len(mylist) < 2:
-		return
+    midpoint = len(mylist) // 2
+    if len(mylist) < 2:
+        return
+    else:
+        L = mylist[:midpoint]
+        R = mylist[midpoint:]
+        Mergesort(L)
+        Mergesort(R)
+        Merge(L, R, mylist)
 
-	else:
-		L = mylist[:midpoint]
-		R = mylist[midpoint:]		
-		Mergesort(L)
-		Mergesort(R)
-		Merge(L,R,mylist)
+        return mylist
 
-		return mylist;
 
-print Mergesort([7,2,1,6,8,5,3,4])
+print Mergesort([7, 2, 1, 6, 8, 5, 3, 4])
 
-#Quicksort
-def partition(mylist,start,end):
-	pivot = mylist[end]
-	pindex = 0
-	i = 0
 
-	while i < end:
+def partition(mylist, start, end):
+    pivot = mylist[end]
+    pindex = 0
+    i = 0
 
-		if mylist[i] > pivot:
-			pindex = pindex
-			i = i+1
+    while i < end:
 
-		elif mylist[i] < pivot:
-			temp = mylist[pindex]
-			mylist[pindex] = mylist[i]
-			mylist[i] = temp
+        if mylist[i] > pivot:
+            pindex = pindex
+            i = i + 1
 
-			pindex = pindex+1
-			i = i+1
+        elif mylist[i] < pivot:
+            temp = mylist[pindex]
+            mylist[pindex] = mylist[i]
+            mylist[i] = temp
 
-	temp = mylist[pindex]
-	mylist[pindex] = mylist[i]
-	mylist[i] = temp
+            pindex = pindex + 1
+            i = i + 1
 
-	return pindex;
+    temp = mylist[pindex]
+    mylist[pindex] = mylist[i]
+    mylist[i] = temp
 
-def quicksort(myarr,start,end):
+    return pindex
 
-	if start < end:
-		pindex = partition(myarr,start,end)
-		quicksort(myarr,start,pindex-1)
-		quicksort(myarr,pindex+1,end)
 
-	return myarr;
+def quicksort(myarr, start, end):
+    if start < end:
+        pindex = partition(myarr, start, end)
+        quicksort(myarr, start, pindex - 1)
+        quicksort(myarr, pindex + 1, end)
 
-A=[7,2,1,6,8,5,3,4]
-print quicksort(A,0,len(A)-1)
+    return myarr
 
+
+A = [7, 2, 1, 6, 8, 5, 3, 4]
+print quicksort(A, 0, len(A) - 1)
